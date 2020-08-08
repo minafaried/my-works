@@ -14,7 +14,8 @@ function validateaddproject(form) {
     var projectlingreg = new RegExp();
     projectlingreg = /(https:|http:)+\/\/+[a-z0-9_\.\-]/i; //https://mina
     var imagelinkreg = new RegExp();
-    imagelinkreg = /(https:|http:)+\/\/+[a-z0-9_\.\-]+\.+(png|jpg)/i; //https://mina.jpg
+    imagelinkreg = /((https|http)?:\/\/.*\.(?:png|jpg)))/i //https://mina.jpg
+
 
 
     nameError.innerText = "";
