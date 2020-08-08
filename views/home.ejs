@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <title>Home</title>
+</head>
+
+<body>
+    <div id="bar" class="bar">
+        <img id="minaimage" class="minaimage" src="mina'sphoto.jpg" alt="">
+        <form id="cvform" class="cvform" method="GET" action="http://localhost:8080/cv">
+            <button id="cvbutton" class="cvbutton" type="submit">CV</button>
+        </form>
+
+        <form id="infoform" class="infoform" action="https://google.com">
+            <button id="infobutton" class="infobutton" type="submit">info</button>
+        </form>
+        <% if (token!=""){%>
+            <form id="addprojectform" class="addprojectform" action="http://localhost:8080/addproject" method="GET">
+                <button id="addprojectbutton" class="addprojectbutton" type="submit">addProject</button>
+            </form>
+            <% }%>
+                <div id="search" class="search">
+                    <input id="searchtext" class="searchtext" type="text" />
+                    <form action="">
+                        <button id="searchbutton" class="searchbutton" type="submit">search</button>
+                    </form>
+                </div>
+                <% if (token!=""){%>
+                    <h1 class="username">
+                        <%= username %>
+                    </h1>
+                    <form id="logoutform" class="logoutform" action="http://localhost:8080/logout">
+                        <button id="logoutbutton" class="logoutbutton" type="submit">logout</button>
+                    </form>
+                    <% }else{%>
+                        <form id="loginform" class="loginform" action="http://localhost:8080/login" method="GET">
+                            <button id="loginbutton" class="loginbutton" type="submit">login</button>
+                        </form>
+                        <%}%>
+    </div>
+    <div id="body" class="body">
+
+        <% allprojects.forEach(function(project) { %>
+            <div class="card">
+
+                <h1>
+                    <%= project.projectname %>
+                </h1>
+                <img src='<%= project.projectimagelink %>' alt="">
+
+                <h3>project description:</h3>
+                <p>
+                    <%= project.description %>
+                </p>
+                <h3>project link:</h3>
+                <a href="<%= project.projectlink %>" target="_blank">
+                    <%= project.projectlink %>
+                </a>
+            </div>
+
+            <% }); %>
+
+    </div>
+</body>
+
+</html>

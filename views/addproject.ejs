@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="addproject.css" />
+    <script src="addprojectvalidation.js"></script>
+    <title>addprojects</title>
+</head>
+
+<body>
+    <div id="bar" class="bar">
+        <h1 class="h1bar">my cv</h1>
+        <form id="homeform" class="homeform" method="GET" action="http://localhost:8080/home">
+            <button id="homebutton" class="homebutton" type="submit">Home</button>
+        </form>
+    </div>
+    <div class="body">
+        <form action="http://localhost:8080/addproject" method="POST" class="addprojectfrom" onsubmit="return validateaddproject(this)">
+            <div class="name ">name:<input type="text " name="nametext " class="nametext " id="nametext"> </div>
+            <div name="nameError" id="nameError" class="error"></div>
+            <div class="projectLink ">projectLink: <input type="url " name="projectLinktext" class="projectLinktext " id="projectLinktext"></div>
+            <div id="projectLinkError" name="projectLinkError" class="error"></div>
+            <div class="projectImageLink ">projectImageLink: <input type="url " name="projectImageLinktext" class="projectImageLinktext " id="projectImageLinktext"></div>
+            <div id="projectImageLinkError" name="projectImageLinkError" class="error"></div>
+            <div class="description ">description: </div>
+            <textarea name="descriptiontext " class="descriptiontext " id="descriptiontext"></textarea>
+            <div id="descriptionError" name="descriptionError" class="error"></div>
+            <br>
+            <button class="addbutton " type="submit ">add</button>
+        </form>
+    </div>
+</body>
+
+</html>

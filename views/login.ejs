@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <script src="loginvalidaton.js"></script>
+    <title>login</title>
+</head>
+
+<body>
+    <div id="bar" class="bar">
+        <h1 class="h1bar">login</h1>
+        <form id="homeform" class="homeform" method="GET" action="http://localhost:8080/home">
+            <button id="homebutton" class="homebutton" type="submit">Home</button>
+        </form>
+    </div>
+    <div class="body">
+        <form action="http://localhost:8080/login" method="POST" class="loginfrom" onsubmit="return validatelogin(this)">
+            <div class="email" id="email">email: <input type="email" name="email" class="emailtext" id="emailtext"></div>
+            <div class="error" id="emailerror"></div>
+            <div class="password" id="password">password: <input type="password" name="password" class="passwordtext" id="passwordtext"></div>
+            <div class="error" id="passerror"></div>
+            <br>
+            <button class="loginbutton" type="submit">login</button>
+        </form>
+    </div>
+</body>
+
+</html>
